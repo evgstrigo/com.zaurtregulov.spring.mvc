@@ -7,6 +7,8 @@
 </h2>
 <br>
 <form:form action="saveEmployee" modelAttribute="employee">
+
+    <form:hidden path="id"/>
     <br><br>
     Name <form:input path="name"/>
     <br><br>

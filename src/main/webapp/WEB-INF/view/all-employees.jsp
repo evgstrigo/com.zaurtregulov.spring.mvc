@@ -7,7 +7,8 @@
 <br>
 
 <table>
-    <tr><th>ID</th>
+    <tr>
+        <th>ID</th>
         <th>Name</th>
         <th>Surname</th>
         <th>Department</th>
@@ -15,8 +16,12 @@
         <th>Operations</th>
     </tr>
     <c:forEach var="emps" items="${allEmps}">
-        <c:url var = "updateButton" value="/updateInfo" >
-<c:param name = "empId" value = "${emps.id}"></c:param>
+        <c:url var="updateButton" value="/updateInfo">
+            <c:param name="empId" value="${emps.id}"></c:param>
+        </c:url>
+
+        <c:url var="deleteButton" value="/deleteEmployee">
+            <c:param name="empId" value="${emps.id}"></c:param>
         </c:url>
 
         <tr>
@@ -27,9 +32,11 @@
             <td>${emps.salary}</td>
             <td>
                 <input type="button" value="Update"
-                onclick="window.location.href = '${updateButton}'">
-
+                       onclick="window.location.href = '${updateButton}'">
+                <input type="button" value="Delete"
+                       onclick="window.location.href = '${deleteButton}'">
             </td>
+
         </tr>
     </c:forEach>
 
@@ -38,7 +45,7 @@
 <br>
 
 <input type="button" value="Add"
-onclick="window.location.href = 'addNewEmployee' "/>
+       onclick="window.location.href = 'addNewEmployee' "/>
 
 
 </body>
